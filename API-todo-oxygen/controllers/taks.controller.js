@@ -14,7 +14,7 @@ class TasksController {
     async getTasks(req, res, next) {
         try {
             let tasks = await Tasks.find({});
-            tasks = !!tasks ? 'Tasks is empty' : tasks;
+            tasks = tasks.length < 0  ? 'Tasks is empty' : tasks;
 
             res.status(200).json({
                 result: tasks
@@ -30,11 +30,8 @@ class TasksController {
      * Get a specific task from DB
      */
     async getTask(req, res, next) {
-        console.log('entro en id')
         try {
             const _id = req.params.taskId;
-            console.log('params', req.params)
-            console.log('entro en id', _id)
 
             if ( mongoose.isValidObjectId(_id) ) {
                 const task = await Tasks.findOne({ _id });
@@ -92,7 +89,6 @@ class TasksController {
      * Delte a specific task
      */
     async deleteTask(req, res, next) {
-        console.log('delte task');
         try {
             const { taskId }= req.body;
 
