@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
+var cors = require('cors');
 var logger = require('morgan');
 
 var tasksRouter = require('./routes/tasks.route');
@@ -11,10 +12,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 //API routes
 // app.use('/', indexRouter);
-app.use('/tasks', tasksRouter);
+app.use('/api/tasks', tasksRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
