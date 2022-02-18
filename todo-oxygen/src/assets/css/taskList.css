@@ -1,0 +1,16 @@
+.card {
+    max-width: 100%;
+}
+
+.list-card.card {
+    width: 35%;
+}
+
+footer {
+    padding: 5px 0 5px 0;
+}
+
+footer .button {
+    margin: auto;
+
+}
