@@ -1,0 +1,23 @@
+.navbar {
+    background-color: beige;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+}
+
+.navbar-item {
+    position: relative;
+    top: 5px;
+    height: auto;
+    margin: auto;
+    max-width: 190px;
+}
+
+.navbar a.navbar-item:hover {
+    background-color: transparent;
+}
+
+.navbar-item img {
+    max-height: 7rem;
+    width: 190px;
+}
