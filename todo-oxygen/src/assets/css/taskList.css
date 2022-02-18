@@ -1,16 +1,10 @@
-.card {
-    max-width: 100%;
+#container-tasklist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-.list-card.card {
+#container-tasklist > div {
     width: 35%;
-}
-
-footer {
-    padding: 5px 0 5px 0;
-}
-
-footer .button {
-    margin: auto;
-
 }

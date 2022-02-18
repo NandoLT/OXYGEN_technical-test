@@ -1,27 +1,30 @@
 import React from 'react';
 
-export default function TaskItem() {
+import '../../assets/css/taskItem.css';
+
+export default function TaskItem({task}) {
+
+    let{ title, tags, description, state } = task
+    state === 'todo' ? state = 'done' : state = 'todo';
     return (
-        <div className="card">
+        <div className="card list-card">
             <header className="card-header">
                 <p className="card-header-title">
-                    Card header
+                    {title}
                 </p>
-                <button className="card-header-icon" aria-label="more options">
-                    <span className="icon">
-                    <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
             </header>
             <div className="card-content">
                 <div className="content">
-                Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                {description}
+                </div>
+                <div className="content">
+                {tags.map(tag => {
+                    return <tag>{tag}</tag>
+                })}
                 </div>
             </div>
             <footer className="card-footer">
-                <a href="#" className="card-footer-item">Save</a>
-                <a href="#" className="card-footer-item">Edit</a>
-                <a href="#" className="card-footer-item">Delete</a>
+                <button className="button is-success"> go to {state}</button>
             </footer>
         </div>
     )
