@@ -21,23 +21,30 @@ export default function TaskList({ tasks, changeStateTask }) {
     }, [tasks]);
 
     return (
-        <div id="container-tasklist">
-            <div id="column-task-todo">
-                <h2>TASKS TO DO</h2>
-                {
-                    taskTodo.map(task =>{
-                        return <TaskItem key={task._id} task={task} changeStateTask={changeStateTask}/>
-                    })
-                }
+        <>
+            <div className="add-newtask">
+                <button className="button is-primary is-large is-fullwidth is-rounded" ><a href="/newtask">Add new Task</a></button>
+            <hr/>
             </div>
-            <div id="column-task-done">
-                <h2>TASKS DONE</h2>
-                {
-                    taskDone.map(task =>{
-                        return <TaskItem key={task._id} task={task} changeStateTask={changeStateTask}/>
-                    })
-                }
+            <div id="container-tasklist">
+                <div id="column-task-todo">
+                    <h2>TASKS TO DO</h2>
+                    {
+                        taskTodo.map(task =>{
+                            return <TaskItem key={task._id} task={task} changeStateTask={changeStateTask}/>
+                        })
+                    }
+                </div>
+                <div id="column-task-done">
+                    <h2>TASKS DONE</h2>
+                    {
+                        taskDone.map(task =>{
+                            return <TaskItem key={task._id} task={task} changeStateTask={changeStateTask}/>
+                        })
+                    }
+                </div>
             </div>
-        </div>
+        </>
+        
     )
 }
