@@ -72,12 +72,12 @@ class TasksController {
     async updateTask(req, res, next) {
         try {
             const data = req.body;
-            const filter = { _id: data.taksId };
+            const filter = { _id: data._id };
 
             const updateTask = await Tasks.findOneAndUpdate(filter, data, {
                 new: true
             });
-
+            
             res.status(201).json({ result: updateTask })
         } catch (error) {
             res.status(505).json({ message: error.message })

@@ -8,3 +8,25 @@
 #container-tasklist > div {
     width: 35%;
 }
+
+#column-task-todo, #column-task-done {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#column-task-todo {
+    background-color: rgb(113, 175, 226);
+}
+
+#column-task-done {
+    background-color: rgb(60, 148, 86);
+}
+
+#column-task-todo h2, #column-task-done h2{
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 0px 5px 0px;
+    font-size: x-large;
+    font-weight: 700;
+}
+

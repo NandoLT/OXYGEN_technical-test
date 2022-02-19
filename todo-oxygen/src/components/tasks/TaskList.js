@@ -3,7 +3,7 @@ import TaskItem from './TaskItem';
 
 import '../../assets/css/taskList.css';
 
-export default function TaskList({ tasks }) {
+export default function TaskList({ tasks, changeStateTask }) {
 
     const [taskTodo, setTaskTodo] = useState([]);
     const [taskDone, setTaskDone] = useState([]);
@@ -18,23 +18,23 @@ export default function TaskList({ tasks }) {
 
         setTaskTodo(todo);
         setTaskDone(done);
-    }, []);
+    }, [tasks]);
 
     return (
         <div id="container-tasklist">
-            <div id="">
+            <div id="column-task-todo">
                 <h2>TASKS TO DO</h2>
                 {
                     taskTodo.map(task =>{
-                        return <TaskItem task={task}/>
+                        return <TaskItem key={task._id} task={task} changeStateTask={changeStateTask}/>
                     })
                 }
             </div>
-            <div>
+            <div id="column-task-done">
                 <h2>TASKS DONE</h2>
                 {
                     taskDone.map(task =>{
-                        return <TaskItem task={task}/>
+                        return <TaskItem key={task._id} task={task} changeStateTask={changeStateTask}/>
                     })
                 }
             </div>

@@ -9,5 +9,18 @@ footer {
 
 footer .button {
     margin: auto;
+}
 
+.list-card .card-header {
+    background-color: beige;
+}
+
+.card-footer {
+    background-color: rgb(204, 204, 163);
+    border-top: 2px solid rgb(109, 109, 87);
+}
+
+.card-footer button {
+    text-transform: uppercase;
+    font-weight: 700;
 }
