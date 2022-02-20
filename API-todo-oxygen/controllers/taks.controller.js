@@ -90,10 +90,10 @@ class TasksController {
      */
     async deleteTask(req, res, next) {
         try {
-            const { taskId }= req.body;
+            const { _id }= req.body;
 
-            await Tasks.findOneAndDelete({ _id: taskId });
-            res.status(200).json({ result: `Task ${ taskId } deleted successfully` });
+            await Tasks.findOneAndDelete({ _id: _id });
+            res.status(200).json({ result: `Task ${ _id } deleted successfully` });
         } catch (error) {
             res.status(505).json({ message: error.message })
         }

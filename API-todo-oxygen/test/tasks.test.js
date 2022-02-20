@@ -14,6 +14,7 @@ describe('Tasks', () => {
             'title': 'Llevar niños a Judo', 
             'tags': ["Judo", "niños"],
             'description': 'Llevar el miécoles a las 18:00 los niños a judo', 
+            'state': 'todo'
         }
 
         it('Should add tasks in DB', (done) => {
@@ -58,7 +59,7 @@ describe('Tasks', () => {
                 'title': 'Llevar niños a Natación', //title is changed
                 'tags': ["Judo", "niños"], 
                 'description': 'Llevar el miécoles a las 18:00 los niños a judo', 
-                'taksId': _id
+                '_id': _id
             }
 
             chai.request(server)
@@ -85,7 +86,7 @@ describe('Tasks', () => {
         it('Should Delete Particular task', (done)=>{
             chai.request(server)
                 .delete("/api/tasks/deletetask")
-                .send({taskId:_id})
+                .send({_id:_id})
                 .end((err, res)=>{                    
                     res.should.have.status(200);                
                     console.log("Deleted Particlar Book using /DELETE/DELETETASK ::::", res.body);    

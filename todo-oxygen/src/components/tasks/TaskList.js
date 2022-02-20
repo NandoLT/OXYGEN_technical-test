@@ -18,6 +18,7 @@ export default function TaskList({ tasks, changeStateTask }) {
 
         setTaskTodo(todo);
         setTaskDone(done);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tasks]);
 
     return (

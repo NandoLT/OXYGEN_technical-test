@@ -41,7 +41,6 @@ export default function Tasks() {
         })
         setTasks([...tasksUpdates]);
         updateState(taskToUpdate);
-            // .then(getAllData());
     }
 
     return (
@@ -57,7 +56,7 @@ export default function Tasks() {
                             tasks.length > 0 ?
                                 <TaskList tasks={tasks} changeStateTask={changeStateTask}/>
                             :
-                            <button className="btn btn-primary">Add New Task</button>
+                            <button className="button is-warning"><a href="/newtask">Add New Task</a></button>
                         }     
                     </>
             }

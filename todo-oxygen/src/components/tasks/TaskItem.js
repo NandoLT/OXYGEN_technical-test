@@ -7,7 +7,7 @@ export default function TaskItem({task, changeStateTask}) {
     let{ title, tags, description, state, _id } = task
 
     return (
-        <div key={_id + 'task'} className="card list-card">
+        <div className="card list-card">
             <header className="card-header">
                 <p className="card-header-title">
                     {title}

@@ -1,7 +1,144 @@
 # API TODO_OXYGEN
+---
+---
+## Commands
+---
+---
+### Run the app
+```
+$ npm start
+```
+### Run developer mode
+```
+$ npm run dev
+```
+### Run the tests
+```
+$ npm test
+```
+---
+---
+## REST API
+---
+---
+### Get list of Tasks
+---
+#### Request
+`GET /api/tasks`
+### Response OK
+~~~
+status: 200
+{
+  result:[{list of tasks}]
+}
+~~~
+### Response ERROR
+~~~
+status: 500
+{
+  message:error.message
+}
+~~~
+### Get a specific Tasks
+---
+#### Request
+  `GET /api/tasks/:id`
 
-
+### Response OK
+~~~
+status: 200
+{
+  result:{task}
+}
+~~~
+### Response ERROR
+~~~
+status: 500
+{
+  message:error.message
+}
+~~~
+### Create new Tasks
+---
+#### Request
+  `POST /api/tasks/newtask`
+~~~
+req.body = {
+  title:        String  required,
+  tags:         Array   required,
+  description:  String  required,
+  state:        String  required, (post by defect 'todo')
+}
+~~~
+### Response OK
+~~~
+status: 201
+{
+  result:{new task}
+}
+~~~
+### Response ERROR
+~~~
+status: 505
+{
+  message:error.message
+}
+~~~
+### Update a specific Tasks
+---
+#### Request
+  `GET /api/tasks/updatetask`
+~~~
+req.body = {
+  title:        String  optional,
+  tags:         Array   optional,
+  description:  String  optional,
+  state:        String  optional, 
+  _id:          String  required,
+}
+~~~
+  ### Response OK
+  ~~~
+  status: 201
+  {
+    result:{task updated}
+  }
+  ~~~
+  ### Response ERROR
+  ~~~
+  status: 505
+  {
+    message:error.message
+  }
+  ~~~
+  ### Delete a specific Tasks
+---
+#### Request
+  `GET /api/tasks/deletetask`
+~~~
+req.body = {
+  _id:  String  required,
+}
+~~~
+  ### Response OK
+  ~~~
+  status: 200
+  {
+    result:"Task ${_id} succesfully deleted"
+  }
+  ~~~
+  ### Response ERROR
+  ~~~
+  status: 505
+  {
+    message:error.message
+  }
+  ~~~
+---
+---
 ## Tests results
+---
+---
 ```
 > mocha
 

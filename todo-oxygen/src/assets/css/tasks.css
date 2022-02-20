@@ -5,3 +5,9 @@
     align-items: center;
     gap: 20px;
 }
+
+button.is-warning a {
+    text-decoration: none;
+    color: rgb(54, 54, 54);
+    font-weight: 700;
+}
