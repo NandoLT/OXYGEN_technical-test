@@ -3,30 +3,38 @@ import Layout from '../commons/layout/Layout';
 import TaskList from './TaskList';
 import { getTasks, updateState } from '../../dataService/tasks/dataTasks';
 import Loader from '../commons/Loader';
+import { setTaskList } from '../../store/slices/tasks';
+import { useDispatch, useSelector } from 'react-redux';
 
 import '../../assets/css/tasks.css';
 
 export default function Tasks() {
 
-    const [tasks, setTasks] = useState([]);
+    const {list: tasks} = useSelector(state => state.tasks);
+    const dispatch = useDispatch();
+
+    // const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
         
     useEffect(() => {
-        getAllData();
+        dispatch(getAllData());
     }, []);
 
-    const getAllData = () => {
+    const getAllData = () => (dispatch) => {
         setIsLoading(true);
         getTasks()
-        .then(response => setTasks([...response.result]))
-            .catch( error => {
-                console.log(error);
-                setError(error);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+        // .then(response => setTasks([...response.result]))
+        .then(response => { 
+            dispatch(setTaskList([...response.result])) 
+        })
+        .catch( error => {
+            console.log(error);
+            setError(error);
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
     }
 
     const changeStateTask = (_id) => {
@@ -39,7 +47,8 @@ export default function Tasks() {
             } 
             return task
         })
-        setTasks([...tasksUpdates]);
+        // setTasks([...tasksUpdates]);
+        dispatch(setTaskList([...tasksUpdates]));
         updateState(taskToUpdate);
     }
 
